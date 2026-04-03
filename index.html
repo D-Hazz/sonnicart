@@ -16,100 +16,327 @@
 
     <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <h1 class="logo"><i class="fas fa-music"></i> Sonnicart</h1>
-            <button id="themeToggle" class="theme-toggle">
-                <i class="fas fa-moon"></i>
+    <div class="header-container">
+        <div class="header-left">
+        <h1 class="logo">
+            <span class="logo-mark"><i class="fas fa-music"></i></span>
+            <span class="logo-text">Sonnicart</span>
+        </h1>
+        <nav class="nav-links">
+            <button class="nav-link" onclick="scrollToSection('services')">Services</button>
+            <button class="nav-link" onclick="scrollToSection('showcase')">Artistes</button>
+            <button class="nav-link" onclick="scrollToSection('story')">Notre vision</button>
+            <button class="nav-link" onclick="scrollToSection('contact')">Contact</button>
+        </nav>
+        </div>
+
+        <div class="header-right">
+        <button class="nav-cta" onclick="scrollToSection('services')">
+            <i class="fas fa-bolt"></i> Commencer
+        </button>
+        <button id="themeToggle" class="theme-toggle">
+            <span class="theme-icon theme-icon-moon"><i class="fas fa-moon"></i></span>
+            <span class="theme-icon theme-icon-sun"><i class="fas fa-sun"></i></span>
+            <span class="theme-toggle-thumb"></span>
+        </button>
+
+        <!-- Bouton nav mobile (vinyle) -->
+        <button id="mobileNavToggle" class="mobile-nav-toggle">
+            <span class="vinyl">
+            <span class="vinyl-center"></span>
+            <span class="vinyl-line vinyl-line-1"></span>
+            <span class="vinyl-line vinyl-line-2"></span>
+            </span>
+        </button>
+        </div>
+    </div>
+
+    <!-- Menu mobile slide-in -->
+    <div id="mobileNav" class="mobile-nav">
+        <div class="mobile-nav-inner">
+        <div class="mobile-nav-header">
+            <span class="mobile-logo">
+            <i class="fas fa-music"></i> Sonnicart
+            </span>
+            <button id="mobileNavClose" class="mobile-nav-close">
+            <i class="fas fa-times"></i>
             </button>
         </div>
+        <nav class="mobile-nav-links">
+            <button class="mobile-nav-link" onclick="mobileNavigate('services')">Services</button>
+            <button class="mobile-nav-link" onclick="mobileNavigate('showcase')">Artistes</button>
+            <button class="mobile-nav-link" onclick="mobileNavigate('story')">Notre vision</button>
+            <button class="mobile-nav-link" onclick="mobileNavigate('contact')">Contact</button>
+        </nav>
+        <button class="mobile-nav-cta" onclick="mobileNavigate('services')">
+            <i class="fas fa-bolt"></i> Commencer avec Sonnicart
+        </button>
+        </div>
+    </div>
     </header>
-
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Empowering African Sound Globally</h1>
-            <p class="hero-subtitle">Distribution, Licensing, Promotion pour artistes africains.</p>
-            <div class="hero-cta">
-                <button class="btn-primary" onclick="scrollToSection('services')"><i class="fas fa-rocket"></i> Start Your Journey</button>
-                <button class="btn-secondary" onclick="scrollToSection('showcase')"><i class="fas fa-globe"></i> Explore Platform</button>
+    <div class="hero-bg"></div>
+
+    <!-- Blobs décoratifs -->
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+
+    <div class="hero-content">
+        <div class="hero-card">
+        <span class="hero-pill">
+            <i class="fas fa-wave-square"></i> Built for African creators
+        </span>
+        <h1 class="hero-title">Empowering African Sound. Globally.</h1>
+        <p class="hero-subtitle">
+            Distribue, suis et fais grandir ta musique depuis une seule plateforme.
+        </p>
+
+        <div class="hero-cta">
+            <button class="btn-primary" onclick="scrollToSection('services')">
+            <i class="fas fa-rocket"></i> Start your journey
+            </button>
+            <button class="btn-secondary" onclick="scrollToSection('showcase')">
+            <i class="fas fa-play-circle"></i> Voir les artistes
+            </button>
+        </div>
+
+        <div class="hero-metrics">
+            <div class="metric">
+            <span class="metric-value">10K+</span>
+            <span class="metric-label">Artistes</span>
+            </div>
+            <div class="metric">
+            <span class="metric-value">50+</span>
+            <span class="metric-label">Pays</span>
+            </div>
+            <div class="metric">
+            <span class="metric-value">1M+</span>
+            <span class="metric-label">Streams suivis</span>
             </div>
         </div>
+        </div>
+    </div>
     </section>
 
     <!-- Services -->
     <section id="services" class="services">
-        <h2 class="section-title"><i class="fas fa-cogs"></i> Nos Services Premium</h2>
-        <div class="services-grid">
-            <div class="service-card" data-service="Distribution">
-                <div class="icon"><i class="fas fa-globe-africa"></i></div>
-                <h3>Distribution</h3>
-                <p>Global reach sur 200+ plateformes.</p>
-            </div>
-            <div class="service-card" data-service="Licensing">
-                <div class="icon"><i class="fas fa-file-contract"></i></div>
-                <h3>Licensing</h3>
-                <p>Sync pour pubs, films, jeux.</p>
-            </div>
-            <div class="service-card" data-service="Promotion">
-                <div class="icon"><i class="fas fa-bullhorn"></i></div>
-                <h3>Promotion</h3>
-                <p>Boost visibilité mondiale.</p>
-            </div>
-            <div class="service-card" data-service="Analytics">
-                <div class="icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Analytics</h3>
-                <p>Insights streams et revenus.</p>
-            </div>
+    <div class="services-header">
+        <h2 class="section-title">
+        <i class="fas fa-cogs"></i> Nos Services Premium
+        </h2>
+        <p>Tout ce qu’il faut pour faire voyager ta musique, de la sortie au reporting.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card" data-service="Distribution">
+        <div class="service-pill"><i class="fas fa-globe-africa"></i> Core</div>
+        <div class="icon"><i class="fas fa-globe-africa"></i></div>
+        <h3>Distribution globale</h3>
+        <p>Push ta musique sur les principales plateformes mondiales avec un seul upload.</p>
+        <ul class="service-points">
+            <li><i class="fas fa-check-circle"></i> 200+ stores & DSP.</li>
+            <li><i class="fas fa-check-circle"></i> Gestion des métadonnées & ISRC.</li>
+            <li><i class="fas fa-check-circle"></i> Calendrier de sorties maîtrisé.</li>
+        </ul>
         </div>
+
+        <div class="service-card" data-service="Licensing">
+        <div class="service-pill"><i class="fas fa-file-contract"></i> Sync</div>
+        <div class="icon"><i class="fas fa-file-contract"></i></div>
+        <h3>Licensing & Sync</h3>
+        <p>Place tes titres dans des pubs, films, séries et jeux vidéo via un réseau ciblé.</p>
+        <ul class="service-points">
+            <li><i class="fas fa-check-circle"></i> Gestion des droits simplifiée.</li>
+            <li><i class="fas fa-check-circle"></i> Négociation des placements.</li>
+            <li><i class="fas fa-check-circle"></i> Contrats clarifiés pour les artistes.</li>
+        </ul>
+        </div>
+
+        <div class="service-card" data-service="Promotion">
+        <div class="service-pill"><i class="fas fa-bullhorn"></i> Growth</div>
+        <div class="icon"><i class="fas fa-bullhorn"></i></div>
+        <h3>Promotion & visibilité</h3>
+        <p>Donne à tes sorties une vraie chance d’entrer en playlists et d’atteindre de nouveaux publics.</p>
+        <ul class="service-points">
+            <li><i class="fas fa-check-circle"></i> Campaigns ciblées (playlists, radios).</li>
+            <li><i class="fas fa-check-circle"></i> Kits presse & assets digitaux.</li>
+            <li><i class="fas fa-check-circle"></i> Support pour activations locales.</li>
+        </ul>
+        </div>
+
+        <div class="service-card" data-service="Analytics">
+        <div class="service-pill"><i class="fas fa-chart-line"></i> Insight</div>
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Analytics & reporting</h3>
+        <p>Comprends où ta musique performe et prends des décisions basées sur les données.</p>
+        <ul class="service-points">
+            <li><i class="fas fa-check-circle"></i> Vue unifiée streams & revenus.</li>
+            <li><i class="fas fa-check-circle"></i> Découpage par pays & plateformes.</li>
+            <li><i class="fas fa-check-circle"></i> Rapports exportables pour ton équipe.</li>
+        </ul>
+        </div>
+    </div>
     </section>
 
     <!-- Storytelling -->
     <section class="story">
-        <div class="story-content">
-            <h2><i class="fas fa-globe"></i> De l'Afrique au Monde</h2>
-            <p>Artistes africains sous-exposés ? Sonnicart change la donne avec tech premium et reach global.</p>
-            <p>Notre impact : +1M streams, 50 pays.</p>
+    <div class="story-inner">
+        <div class="story-header">
+        <span class="pill"><i class="fas fa-globe-africa"></i> From Africa to the world</span>
+        <h2><i class="fas fa-globe"></i> De l'ombre aux playlists globales</h2>
+        <p>
+            Sonnicart aide les artistes africains à passer du local au global avec une approche data-driven et une tech de niveau plateforme.
+        </p>
         </div>
+
+        <div class="story-grid">
+        <div class="story-card">
+            <h3><i class="fas fa-exclamation-circle"></i> Le défi</h3>
+            <p>Talents puissants, mais peu de visibilité, contrats complexes et peu de contrôle sur les données et les revenus.</p>
+            <ul>
+            <li><i class="fas fa-times-circle"></i> Distribution morcelée.</li>
+            <li><i class="fas fa-times-circle"></i> Peu d’accès aux playlists structurées.</li>
+            <li><i class="fas fa-times-circle"></i> Manque de transparence sur les performances.</li>
+            </ul>
+        </div>
+
+        <div class="story-card">
+            <h3><i class="fas fa-bolt"></i> Notre approche</h3>
+            <p>Une stack moderne pensée pour les artistes africains, avec une UX simple côté créateur et une infra solide côté industrie.</p>
+            <ul>
+            <li><i class="fas fa-check-circle"></i> Une seule plateforme pour distribuer partout.</li>
+            <li><i class="fas fa-check-circle"></i> Analytics clairs et actionnables.</li>
+            <li><i class="fas fa-check-circle"></i> Support humain quand c’est nécessaire.</li>
+            </ul>
+        </div>
+
+        <div class="story-card">
+            <h3><i class="fas fa-globe-europe"></i> L’impact</h3>
+            <p>Des catalogues qui voyagent, des revenus qui augmentent, et une image de marque alignée sur le niveau de ta musique.</p>
+            <ul>
+            <li><i class="fas fa-arrow-up"></i> +1M streams monitorés.</li>
+            <li><i class="fas fa-map-marked-alt"></i> Présence dans 50+ pays.</li>
+            <li><i class="fas fa-users"></i> Communauté d’artistes en croissance.</li>
+            </ul>
+        </div>
+        </div>
+
+        <div class="story-timeline">
+        <div class="timeline-step">
+            <span class="dot"></span>
+            <div class="timeline-content">
+            <h4>1. Tu soumets ta musique</h4>
+            <p>Upload propre, métadonnées complètes, choix des plateformes et fenêtres de sortie.</p>
+            </div>
+        </div>
+        <div class="timeline-step">
+            <span class="dot"></span>
+            <div class="timeline-content">
+            <h4>2. Nous distribuons & monitorons</h4>
+            <p>Distribution globale + suivi des streams, territoires et devices en temps quasi-réel.</p>
+            </div>
+        </div>
+        <div class="timeline-step">
+            <span class="dot"></span>
+            <div class="timeline-content">
+            <h4>3. Tu récupères les insights & les revenus</h4>
+            <p>Rapports lisibles, paiements organisés, décisions basées sur des données, pas sur des suppositions.</p>
+            </div>
+        </div>
+        </div>
+    </div>
     </section>
 
     <!-- Showcase -->
     <section id="showcase" class="showcase">
-        <h2 class="section-title"><i class="fas fa-users"></i> Artistes Sonnicart</h2>
-        <div class="carousel">
+    <div class="showcase-header">
+        <h2 class="section-title">
+        <i class="fas fa-users"></i> Artistes Sonnicart
+        </h2>
+        <p>Un échantillon des talents qui font vibrer la scène africaine avec Sonnicart.</p>
+    </div>
+
+    <div class="showcase-layout">
+        <div class="carousel-wrapper">
+        <div class="carousel-header">
+            <span class="pill"><i class="fas fa-fire"></i> Trending now</span>
+            <div class="carousel-nav">
             <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-track" id="carouselTrack"></div>
             <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="audio-player">
-            <audio id="audioPlayer" preload="metadata">
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
-            <div class="player-controls">
-                <button id="playBtn"><i class="fas fa-play"></i></button>
-                <div class="progress">
-                    <span id="currentTime">0:00</span>
-                    <input type="range" id="progressBar" min="0" max="100" value="0">
-                    <span id="duration">0:00</span>
-                </div>
-                <div class="volume"><i class="fas fa-volume-up"></i><input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1"></div>
             </div>
         </div>
+
+        <div class="carousel" id="artistCarousel">
+            <div class="carousel-track" id="carouselTrack">
+            <!-- Slides injectées en JS -->
+            </div>
+        </div>
+        </div>
+
+        <div class="player-panel">
+        <div class="player-meta">
+            <span class="pill pill-small"><i class="fas fa-wave-square"></i> Now playing</span>
+            <h3 id="currentTrackTitle">Sélection Sonnicart</h3>
+            <p id="currentTrackArtist">Choisis un artiste dans le carousel pour écouter un extrait.</p>
+            <div class="player-tags" id="currentTrackTags">
+            <span>#Afrobeats</span>
+            <span>#Amapiano</span>
+            <span>#AfroPop</span>
+            </div>
+        </div>
+
+        <div class="audio-player">
+            <audio id="audioPlayer" preload="metadata">
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+            <div class="player-controls">
+            <button id="playBtn"><i class="fas fa-play"></i></button>
+            <div class="progress">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" min="0" max="100" value="0">
+                <span id="duration">0:00</span>
+            </div>
+            </div>
+            <div class="player-bottom">
+            <div class="volume">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
+            </div>
+            <div class="player-extra">
+                <span><i class="fas fa-heart"></i></span>
+                <span><i class="fas fa-share-alt"></i></span>
+                <span><i class="fas fa-ellipsis-h"></i></span>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
     </section>
 
     <!-- Stats -->
     <section class="stats">
         <div class="stats-grid">
             <div class="stat">
-                <span class="stat-number" data-target="10000"><i class="fas fa-users"></i> 0</span>
+                <div class="stat-top">
+                    <span class="stat-icon"><i class="fas fa-users"></i></span>
+                    <span class="stat-number" data-target="10000">0</span>
+                </div>
                 <p>+ Artistes</p>
             </div>
             <div class="stat">
-                <span class="stat-number" data-target="50"><i class="fas fa-globe"></i> 0</span>
+                <div class="stat-top">
+                    <span class="stat-icon"><i class="fas fa-globe"></i></span>
+                    <span class="stat-number" data-target="50">0</span>
+                </div>
                 <p>+ Pays</p>
             </div>
             <div class="stat">
-                <span class="stat-number" data-target="1000000"><i class="fas fa-play-circle"></i> 0</span>
+                <div class="stat-top">
+                    <span class="stat-icon"><i class="fas fa-play-circle"></i></span>
+                    <span class="stat-number" data-target="1000000">0</span>
+                </div>
                 <p>+ Streams</p>
             </div>
         </div>
@@ -117,28 +344,108 @@
 
     <!-- CTA -->
     <section class="cta">
-        <h2><i class="fas fa-star"></i> Join Sonnicart</h2>
-        <p>Start distributing today</p>
-        <button class="btn-primary large"><i class="fas fa-sign-in-alt"></i> S'inscrire Gratuitement</button>
+    <div class="cta-inner">
+        <div class="cta-copy">
+        <h2><i class="fas fa-star"></i> Ready to level up your music distribution?</h2>
+        <p>Rejoins Sonnicart et accède à une infrastructure de distribution conçue pour les artistes africains ambitieux.</p>
+        <ul class="cta-list">
+            <li><i class="fas fa-check-circle"></i> Paiements transparents et reporting automatique.</li>
+            <li><i class="fas fa-check-circle"></i> Support dédié pour labels et artistes indépendants.</li>
+            <li><i class="fas fa-check-circle"></i> Outils analytics pour comprendre ton audience.</li>
+        </ul>
+        <div class="cta-badges">
+            <span><i class="fas fa-shield-alt"></i> Secure & Reliable</span>
+            <span><i class="fas fa-globe-africa"></i> Built for Africa</span>
+        </div>
+        </div>
+        <div class="cta-action">
+        <p class="cta-subtitle">Prêt à commencer ?</p>
+        <button class="btn-primary large">
+            <i class="fas fa-sign-in-alt"></i> S'inscrire Gratuitement
+        </button>
+        <p class="cta-note">Aucun engagement, annulation possible à tout moment.</p>
+        </div>
+    </div>
     </section>
 
     <!-- Contact Form -->
     <section class="contact">
-        <h2><i class="fas fa-envelope"></i> Contact</h2>
+    <div class="contact-header">
+        <h2><i class="fas fa-envelope"></i> Parlons de ton prochain projet</h2>
+        <p>Dis-nous en plus sur ta musique, ton label ou ta vision. Notre équipe te répond sous 24h.</p>
+    </div>
+
+    <div class="contact-layout">
+        <div class="contact-info">
+        <h3><i class="fas fa-headset"></i> Support Sonnicart</h3>
+        <ul>
+            <li><i class="fas fa-envelope-open-text"></i> support@sonnicart.com</li>
+            <li><i class="fas fa-clock"></i> Réponse moyenne : &lt; 24h</li>
+            <li><i class="fas fa-map-marker-alt"></i> Remote • Africa first</li>
+        </ul>
+        <p class="contact-tip"><i class="fas fa-info-circle"></i> Plus tu es précis, plus nous pouvons t’aider efficacement.</p>
+        </div>
+
+        <div class="contact-form-wrapper">
+        <div class="form-steps-indicator">
+            <div class="step-dot active" data-step-dot="1"><span>1</span> Infos</div>
+            <div class="step-dot" data-step-dot="2"><span>2</span> Message</div>
+        </div>
+        <div class="form-progress">
+            <div class="form-progress-bar" id="formProgressBar"></div>
+        </div>
+
         <form id="contactForm">
             <div class="step active" data-step="1">
-                <input type="text" placeholder="Nom" required>
-                <input type="email" placeholder="Email" required>
+            <div class="field-group">
+                <label>Nom complet <span>*</span></label>
+                <input type="text" id="nameInput" placeholder="Ex : Amani K." required>
+                <small class="field-hint">Comment souhaites-tu que l’on t’appelle ?</small>
             </div>
+            <div class="field-group">
+                <label>Email <span>*</span></label>
+                <input type="email" id="emailInput" placeholder="Ex : you@example.com" required>
+                <small class="field-hint">On ne l’utilisera que pour te répondre, jamais pour du spam.</small>
+            </div>
+            <div class="field-group">
+                <label>Tu es plutôt…</label>
+                <select id="roleSelect">
+                <option value="artist">Artiste</option>
+                <option value="label">Label</option>
+                <option value="manager">Manager</option>
+                <option value="other">Autre</option>
+                </select>
+            </div>
+            </div>
+
             <div class="step" data-step="2">
-                <textarea placeholder="Message" required></textarea>
+            <div class="field-group">
+                <label>Objet <span>*</span></label>
+                <input type="text" id="subjectInput" placeholder="Ex : Distribution de mon prochain EP" required>
             </div>
+            <div class="field-group">
+                <label>Message <span>*</span></label>
+                <textarea id="messageInput" placeholder="Parle-nous de ton projet, de ta musique, de ton audience..." required></textarea>
+                <small class="field-hint">Ajoute des liens (Spotify, YouTube, etc.) si tu veux.</small>
+            </div>
+            </div>
+
             <div class="form-nav">
-                <button type="button" id="prevBtn" style="display:none;"><i class="fas fa-arrow-left"></i> Précédent</button>
-                <button type="button" id="nextBtn"><i class="fas fa-arrow-right"></i> Suivant</button>
-                <button type="submit" id="submitBtn" style="display:none;"><i class="fas fa-paper-plane"></i> Envoyer</button>
+            <button type="button" id="prevBtn" style="display:none;">
+                <i class="fas fa-arrow-left"></i> Précédent
+            </button>
+            <button type="button" id="nextBtn">
+                Suivant <i class="fas fa-arrow-right"></i>
+            </button>
+            <button type="submit" id="submitBtn" style="display:none;">
+                <i class="fas fa-paper-plane"></i> Envoyer
+            </button>
             </div>
+
+            <p id="formStatus" class="form-status"></p>
         </form>
+        </div>
+    </div>
     </section>
 
     <script src="script.js"></script>
