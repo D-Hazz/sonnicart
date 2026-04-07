@@ -1,5 +1,20 @@
 // Artistes avec vraies images Unsplash (libres)
+// Artistes avec vraies images Unsplash (libres)
 const artists = [
+  { 
+    name: 'Tyla',
+    role: 'Amapiano • ZA',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&h=300&fit=crop',
+    preview: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+    tags: ['Amapiano', 'Viral', 'Club']
+  },
+  { 
+    name: 'Wizkid',
+    role: 'AfroPop • NG',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
+    preview: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+    tags: ['AfroPop', 'Streams', 'Crossover']
+  },
   { 
     name: 'Burna Boy',
     role: 'Afrobeats • NG',
@@ -134,6 +149,7 @@ function initServices() {
 
 
 let currentSlide = 0;
+let audio = null;
 
 // Carousel
 function initCarousel() {
@@ -152,7 +168,9 @@ function initCarousel() {
       <div class="carousel-slide-body">
         <div class="carousel-slide-header">
           <div class="carousel-slide-title">${artist.name}</div>
-          <div class="carousel-slide-badge"><i class="fas fa-wave-square"></i> ${idx === 0 ? 'Featured' : 'Artist'}</div>
+          <div class="carousel-slide-badge">
+            <i class="fas fa-wave-square"></i> ${idx === 0 ? 'Featured' : 'Artist'}
+          </div>
         </div>
         <div class="carousel-slide-meta">
           <i class="fas fa-music"></i>
@@ -203,8 +221,13 @@ function prevSlide() {
 
 function updateCarousel() {
   const track = document.getElementById('carouselTrack');
-  const slideWidth = track.querySelector('.carousel-slide')?.offsetWidth || 240;
-  const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 16);
+  const slide = track.querySelector('.carousel-slide');
+  if (!slide) return;
+
+  const slideWidth = slide.offsetWidth;
+  const style = getComputedStyle(track);
+  const gap = parseFloat(style.columnGap || style.gap || 16);
+
   const offset = currentSlide * (slideWidth + gap);
   track.style.transform = `translateX(-${offset}px)`;
 }
@@ -223,15 +246,17 @@ function selectArtist(index) {
 }
 
 // Audio
-let audio = document.getElementById('audioPlayer');
-
 function initAudio() {
+  audio = document.getElementById('audioPlayer');
   const playBtn = document.getElementById('playBtn');
   const progressBar = document.getElementById('progressBar');
   const volumeBar = document.getElementById('volumeBar');
 
   playBtn.onclick = togglePlay;
-  progressBar.oninput = (e) => { audio.currentTime = (e.target.value / 100) * audio.duration; };
+  progressBar.oninput = (e) => {
+    if (!audio.duration) return;
+    audio.currentTime = (e.target.value / 100) * audio.duration;
+  };
   volumeBar.oninput = (e) => { audio.volume = e.target.value; };
 
   audio.ontimeupdate = updateProgress;
@@ -255,15 +280,21 @@ function togglePlay() {
 function loadPreview(src) {
   audio.src = src;
   audio.load();
-  togglePlay();
+  // autoplay à la sélection de l'artiste
+  const playBtn = document.getElementById('playBtn');
+  const icon = playBtn.querySelector('i');
+  audio.play().then(() => {
+    icon.className = 'fas fa-pause';
+  }).catch(() => {
+    icon.className = 'fas fa-play';
+  });
 }
 
 function updateProgress() {
-  if (audio.duration) {
-    const value = (audio.currentTime / audio.duration) * 100;
-    document.getElementById('progressBar').value = value;
-    document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
-  }
+  if (!audio.duration) return;
+  const value = (audio.currentTime / audio.duration) * 100;
+  document.getElementById('progressBar').value = value;
+  document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
 }
 
 function formatTime(seconds) {
@@ -271,6 +302,7 @@ function formatTime(seconds) {
   const secs = Math.floor(seconds % 60);
   return `${mins}:${secs.toString().padStart(2, '0')}`;
 }
+
 
 // Stats
 function initStats() {

@@ -886,8 +886,15 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
 }
 
 /* ================ Showcase ========================== */
+
 .showcase {
   margin-top: 2rem;
+}
+
+.showcase-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .showcase-header {
@@ -899,12 +906,11 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   opacity: 0.9;
 }
 
-/* Layout desktop */
+/* Layout global : carousel en haut, player en dessous */
 .showcase-layout {
   display: grid;
-  grid-template-columns: 1.7fr 1.3fr;
+  grid-template-rows: auto auto;
   gap: 2rem;
-  align-items: stretch;
 }
 
 /* Pills */
@@ -923,14 +929,18 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   font-size: 0.75rem;
 }
 
-/* Carousel */
+/* ================= Carousel ================= */
+
 .carousel-wrapper {
   background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%);
   border-radius: 20px;
   padding: 1.4rem;
   border: 1px solid rgba(255,255,255,0.08);
+  max-with: 100%;
+  overflow: hidden;
 }
 
+/* Header du carousel */
 .carousel-header {
   display: flex;
   justify-content: space-between;
@@ -968,17 +978,20 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   transform: translateY(-2px);
 }
 
-/* Scroll horizontal activé, mais contrôle JS possible */
+/* Viewport fixe du carousel */
 .carousel {
   position: relative;
-  overflow-x: auto;
+  overflow: hidden;       /* important: masque les slides qui débordent */
   -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
+/* Track horizontale qui défile */
 .carousel-track {
   display: flex;
   gap: 1.4rem;
   transition: transform 0.5s ease;
+  will-change: transform;
   padding-bottom: 0.2rem;
 }
 
@@ -1087,15 +1100,17 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   opacity: 1;
 }
 
-/* Player panel */
-.player-panel {
+/* ================= Player (ligne du bas) ================= */
+
+.player-row {
   background: rgba(255,255,255,0.03);
   border-radius: 20px;
-  padding: 1.6rem;
   border: 1px solid rgba(255,255,255,0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  padding: 1.6rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr; /* meta gauche, audio droite */
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .player-meta h3 {
@@ -1219,29 +1234,20 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   box-shadow: var(--glow);
 }
 
-/* Tablettes */
+/* ========= Responsive ========= */
+
 @media (max-width: 1024px) {
-  .showcase-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .carousel-wrapper {
-    order: 2;
-  }
-
-  .player-panel {
-    order: 1;
+  .player-row {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Mobiles */
 @media (max-width: 768px) {
   .showcase {
     margin-top: 1.5rem;
   }
 
   .showcase-layout {
-    grid-template-columns: 1fr;
     gap: 1.4rem;
   }
 
@@ -1262,7 +1268,8 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     height: 180px;
   }
 
-  .player-panel {
+  .player-row {
+    grid-template-columns: 1fr;
     padding: 1.2rem;
   }
 
@@ -1285,7 +1292,6 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
   }
 }
 
-/* Très petits écrans */
 @media (max-width: 480px) {
   .carousel-slide {
     flex: 0 0 90%;
@@ -1296,7 +1302,7 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     height: 160px;
   }
 
-  .player-panel {
+  .player-row {
     padding: 1rem;
     width: 100%;
   }
@@ -1305,7 +1311,6 @@ section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     font-size: 1.1rem;
   }
 }
-
 
 /* ================== Stats ========================== */
 .stats {
