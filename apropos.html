@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonnicart - Empowering African Sound Globally</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <i class="fas fa-music loader-icon"></i>
+        <p>A propos Loading...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <h1 class="logo">
+                    <span class="logo-mark"><i class="fas fa-music"></i></span>
+                    <span class="logo-text">Sonnicart</span>
+                </h1>
+                <nav class="nav-links">
+                    <button class="nav-link" onclick="scrollToSection('services')">Services</button>
+                    <button class="nav-link" onclick="scrollToSection('showcase')">Artistes</button>
+                    <button class="nav-link" onclick="scrollToSection('story')">Notre vision</button>
+                    <a href="contact.html"><button class="nav-link" onclick="scrollToSection('contact')">Contact</button></a>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <button class="nav-cta" onclick="scrollToSection('services')">
+                    <i class="fas fa-bolt"></i> Commencer
+                </button>
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="theme-icon theme-icon-moon"><i class="fas fa-moon"></i></span>
+                    <span class="theme-icon theme-icon-sun"><i class="fas fa-sun"></i></span>
+                    <span class="theme-toggle-thumb"></span>
+                </button>
+
+                <!-- Bouton nav mobile (vinyle) -->
+                <button id="mobileNavToggle" class="mobile-nav-toggle">
+                    <span class="vinyl">
+                        <span class="vinyl-center"></span>
+  
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu mobile slide-in -->
+        <div id="mobileNav" class="mobile-nav">
+            <div class="mobile-nav-inner">
+                <div class="mobile-nav-header">
+                    <span class="mobile-logo">
+                        <i class="fas fa-music"></i> Sonnicart
+                    </span>
+                    <button id="mobileNavClose" class="mobile-nav-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <nav class="mobile-nav-links">
+                    <button class="mobile-nav-link" onclick="mobileNavigate('services')">Services</button>
+                    <button class="mobile-nav-link" onclick="mobileNavigate('showcase')">Artistes</button>
+                    <button class="mobile-nav-link" onclick="mobileNavigate('story')">Notre vision</button>
+                    <button class="mobile-nav-link" onclick="mobileNavigate('contact')">Contact</button>
+                </nav>
+                <button class="mobile-nav-cta" onclick="mobileNavigate('services')">
+                    <i class="fas fa-bolt"></i> Commencer avec Sonnicart
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Storytelling enrichi -->
+    <section class="story">
+        <div class="story-inner">
+            <div class="story-header">
+                <span class="pill"><i class="fas fa-globe-africa"></i> From Africa to the World</span>
+                <h2><i class="fas fa-globe"></i> De l'ombre des studios locaux aux playlists mondiales</h2>
+                <p>
+                    En 2025, la musique africaine a généré +110M$ de revenus streaming en Afrique subsaharienne (+22% vs 2024), mais les artistes touchent souvent moins de 0,004$/stream sur Spotify. Sonnicart change la donne : data-driven, transparente, pour que vos beats afrobeats (x5000 sur Spotify depuis 2021) voyagent de Kinshasa à la world chart.
+                </p>
+            </div>
+
+            <div class="story-intro">
+                <blockquote>
+                    "J'étais bloqué par les frais de distribution et le manque de stats claires. Avec Sonnicart, mes tracks ont atteint 50k streams en 3 mois sur Apple Music et Spotify !" – Kabila M., producteur RD Congo
+                </blockquote>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-card">
+                    <h3><i class="fas fa-exclamation-circle"></i> Le défi africain</h3>
+                    <p>Talents explosifs (Wizkid 405M streams Spotify 2026), mais infrastructure internet faible, paiements bas (3$/1000 streams Spotify) et saturation des plateformes.</p>
+                    <ul>
+                        <li><i class="fas fa-times-circle"></i> Distribution fragmentée (Deedo, Spinlet, etc.).</li>
+                        <li><i class="fas fa-times-circle"></i> Visibilité limitée hors afrobeats dominants (Burna Boy 1,99B streams 2025).</li>
+                        <li><i class="fas fa-times-circle"></i> Opacité sur royalties et analytics temps réel.</li>
+                    </ul>
+                </div>
+
+                <div class="story-card featured">
+                    <h3><i class="fas fa-bolt"></i> Notre Solution Sonnicart</h3>
+                    <p>Plateforme unifiée pour distribuer sur 50+ stores (Spotify, Apple, Boomplay, TikTok), avec IA pour playlists et paiements Mobile Money optimisés pour l'Afrique.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Upload unique → push global en 48h.</li>
+                        <li><i class="fas fa-check-circle"></i> Dashboard analytics (streams par pays/device).</li>
+                        <li><i class="fas fa-check-circle"></i> Support local + promo diaspora.</li>
+                    </ul>
+                </div>
+
+                <div class="story-card">
+                    <h3><i class="fas fa-rocket"></i> Résultats Concrets</h3>
+                    <p>Comme l'afrobeats qui explose, vos revenus montent : +30% en moyenne pour nos artistes, présence en Europe/USA.</p>
+                    <ul>
+                        <li><i class="fas fa-arrow-up"></i> +2M streams cumulés pour beta-testeurs.</li>
+                        <li><i class="fas fa-map-marked-alt"></i> 60+ pays, focus Afrique + diaspora.</li>
+                        <li><i class="fas fa-chart-line"></i> 85% retention grâce à insights actionnables.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="story-timeline">
+                <h3 class="timeline-title"><i class="fas fa-road"></i> Votre Journey avec Sonnicart</h3>
+                <div class="timeline-step">
+                    <span class="dot"></span>
+                    <div class="timeline-content">
+                        <h4>1. Créez & Uploadez</h4>
+                        <p>Studio-ready : métadonnées auto, artwork IA, choix stores (incl. Boomplay Afrique).</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="dot"></span>
+                    <div class="timeline-content">
+                        <h4>2. On Distribue & Boost</h4>
+                        <p>Push simultané + monitoring live (streams, pays top : Nigeria, RD Congo, USA).</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="dot"></span>
+                    <div class="timeline-content">
+                        <h4>3. Insights & Monétisez</h4>
+                        <p>Rapports hebdo, paiements Mobile Money, reco playlists basées sur data.</p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <span class="dot active"></span>
+                    <div class="timeline-content">
+                        <h4>4. Scalez Global</h4>
+                        <p>Collab artistes, promo virale, royalties optimisées (jusqu'à Apple rates 0,01$/stream).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="story-cta">
+                <h3><i class="fas fa-fire"></i> Prêt à exploser comme Tems ou Tyla ?</h3>
+                <p>Rejoignez 500+ artistes qui transforment leurs vues locales en revenus globaux.</p>
+                <button class="cta-button" onclick="scrollToSection('services')">
+                    <i class="fas fa-bolt"></i> Démarrer Gratuitement
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
