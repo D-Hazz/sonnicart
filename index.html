@@ -10,7 +10,7 @@
 <body>
     <!-- Loading Screen -->
     <div id="loader" class="loader">
-        <i class="floader-icon"><img src="assets/sonnicartnew.png"></i>
+        <i class="floader-icon"><img src="assets/logo-sonnicart.png"></i>
         <p>Sonnicart Loading...</p>
     </div>
 
@@ -19,7 +19,7 @@
     <div class="header-container">
         <div class="header-left">
         <h1 class="logo">
-            <span class="logo-mark"><i class="fas fa-music"></i></span>
+            <img src="assets/logo-sonnicart.png" alt="Sonnicart" class="logo-img" width="48" height="48">
             <span class="logo-text">Sonnicart</span>
         </h1>
         <nav class="nav-links">
@@ -53,24 +53,24 @@
     <!-- Menu mobile slide-in -->
     <div id="mobileNav" class="mobile-nav">
         <div class="mobile-nav-inner">
-        <div class="mobile-nav-header">
-            <span class="mobile-logo">
-            <i class="fas fa-music"></i> Sonnicart
-            </span>
-            <button id="mobileNavClose" class="mobile-nav-close">
-            <i class="fas fa-bolt"></i>
-            </button>
-        </div>
-        <nav class="mobile-nav-links">
-            <button class="mobile-nav-link" onclick="mobileNavigate('services')">Services</button>
-            <button class="mobile-nav-link" onclick="mobileNavigate('showcase')">Artistes</button>
-            <a class="mobile-nav-link" href="apropos.html">Notre vision</a>
-            <a class="mobile-nav-link" href="contact.html"><button">Contact</button></a>
+            <div class="mobile-nav-header">
+                <span class="mobile-logo">
+                <img src="assets/logo-sonnicart.png" alt="Sonnicart" class="logo-img" width="48" height="48"> Sonnicart
+                </span>
+                <button id="mobileNavClose" class="mobile-nav-close">
+                <i class="fas fa-bolt"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav-links">
+                <button class="mobile-nav-link" onclick="mobileNavigate('services')">Services</button>
+                <button class="mobile-nav-link" onclick="mobileNavigate('showcase')">Artistes</button>
+                <a class="mobile-nav-link" href="apropos.html">Notre vision</a>
+                <a class="mobile-nav-link" href="contact.html"><button">Contact</button></a>
 
-        </nav>
-        <button class="mobile-nav-cta" onclick="mobileNavigate('services')">
-            <i class="fas fa-bolt"></i> Commencer avec Sonnicart
-        </button>
+            </nav>
+            <button class="mobile-nav-cta" onclick="mobileNavigate('services')">
+                <i class="fas fa-bolt"></i> Commencer avec Sonnicart
+            </button>
         </div>
     </div>
     </header>
@@ -302,6 +302,41 @@
         </div>
     </div>
     </section>
+
+    <footer class="page-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+            <img src="assets/logo-sonnicart.png" alt="Sonnicart" class="logo-img" width="36" height="36">
+            <p>Sonnicart — Empowering African Sound Globally</p>
+            </div>
+
+            <div class="footer-links">
+            <div class="footer-column">
+                <h4>Produits</h4>
+                <a href="services.html">Distribution</a>
+                <a href="artists.html">Artistes</a>
+                <a href="blog.html">Blog</a>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="cgu.html">CGU</a>
+                <a href="privacy.html">Confidentialité</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h4>Réseaux</h4>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+            </div>
+
+            <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> Sonnicart — Tous droits réservés.</p>
+            <p><a href="cgu.html">CGU</a> | <a href="privacy.html">Confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
 
 
     <script src="assets/js/script.js"></script>

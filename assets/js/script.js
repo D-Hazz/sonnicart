@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initServices();
     initScrollAnimations();
     initForm();
+    initCurrentYear();
 });
 
 // Loader
@@ -443,5 +444,8 @@ function initForm() {
   showStep(currentStep);
 }
 
-// Year footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
+// Footer - Année courante
+function initCurrentYear() {
+  const el = document.getElementById('currentYear');
+  if (el) el.textContent = new Date().getFullYear();
+}
