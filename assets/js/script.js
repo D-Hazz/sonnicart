@@ -365,70 +365,83 @@ function initForm() {
   const stepDots = document.querySelectorAll('.step-dot');
   let currentStep = 0;
 
-  updateFormNav();
-  updateProgress();
+  if (!steps.length || !nextBtn || !prevBtn || !submitBtn) return;
 
-  nextBtn.onclick = () => {
-    if (validateStep(currentStep)) {
-      steps[currentStep].classList.remove('active');
-      currentStep++;
-      updateFormNav();
-      updateProgress();
-      statusEl.textContent = '';
-    } else {
-      statusEl.textContent = 'Merci de compléter les champs requis avant de continuer.';
-      statusEl.className = 'form-status error';
-    }
-  };
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('active', i === index);
+    });
 
-  prevBtn.onclick = () => {
-    steps[currentStep].classList.remove('active');
-    currentStep--;
-    updateFormNav();
-    updateProgress();
-    statusEl.textContent = '';
-  };
+    stepDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i <= index);
+    });
 
-  submitBtn.onclick = (e) => {
-    e.preventDefault();
+    const progress = ((index + 1) / steps.length) * 100;
+    progressBar.style.width = progress + '%';
+
+    prevBtn.style.display = index === 0 ? 'none' : 'inline-flex';
+    nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-flex';
+    submitBtn.style.display = index === steps.length - 1 ? 'inline-flex' : 'none';
+  }
+
+  function validateStep(index) {
+    const step = steps[index];
+    const fields = step.querySelectorAll('input, textarea, select');
+
+    let valid = true;
+
+    fields.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#ef5350';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+
+    return valid;
+  }
+
+  nextBtn.addEventListener('click', () => {
     if (!validateStep(currentStep)) {
-      statusEl.textContent = 'Merci de compléter les champs requis.';
+      statusEl.textContent = 'Merci de compléter tous les champs de cette étape avant de continuer.';
       statusEl.className = 'form-status error';
       return;
     }
-    // Simulé
+
+    statusEl.textContent = '';
+    statusEl.className = 'form-status';
+
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
+      showStep(currentStep);
+    }
+  });
+
+  submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (!validateStep(currentStep)) {
+      statusEl.textContent = 'Merci de compléter tous les champs avant l’envoi.';
+      statusEl.className = 'form-status error';
+      return;
+    }
+
     statusEl.textContent = 'Message envoyé avec succès. Nous reviendrons vers toi sous 24h.';
     statusEl.className = 'form-status success';
-  };
+  });
 
-  function updateFormNav() {
-    steps[currentStep].classList.add('active');
-    if (currentStep === 0) {
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'inline-flex';
-      submitBtn.style.display = 'none';
-    } else if (currentStep === steps.length - 1) {
-      prevBtn.style.display = 'inline-flex';
-      nextBtn.style.display = 'none';
-      submitBtn.style.display = 'inline-flex';
-    } else {
-      prevBtn.style.display = 'inline-flex';
-      nextBtn.style.display = 'inline-flex';
-      submitBtn.style.display = 'none';
-    }
-  }
-
-  function updateProgress() {
-    const progress = ((currentStep + 1) / steps.length) * 100;
-    progressBar.style.width = progress + '%';
-    stepDots.forEach((dot, index) => {
-      dot.classList.toggle('active', index <= currentStep);
-    });
-  }
-
-  function validateStep(step) {
-    const stepIndex = step + 1;
-    const inputs = document.querySelectorAll(`.step[data-step="${stepIndex}"] input, .step[data-step="${stepIndex}"] textarea`);
-    return Array.from(inputs).every(input => input.value.trim());
-  }
+  showStep(currentStep);
 }
+
+// Year footer
+document.getElementById('currentYear').textContent = new Date().getFullYear();

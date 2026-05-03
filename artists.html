@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonnicart - Artistes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="assets/css/artists.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Retour à l’accueil
+      </a>
+
+      <div class="page-title">
+        <h1><i class="fas fa-users"></i> Tous les artistes</h1>
+        <p>Découvre les artistes Sonnicart, leur univers, leur bio et leurs liens.</p>
+      </div>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Changer le thème">
+        <span class="theme-icon theme-icon-moon"><i class="fas fa-moon"></i></span>
+        <span class="theme-icon theme-icon-sun"><i class="fas fa-sun"></i></span>
+        <span class="theme-toggle-thumb"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="artists-controls">
+      <div class="search-group">
+        <label for="artistSearch">Rechercher un artiste</label>
+        <input type="search" id="artistSearch" placeholder="Nom, style, pays..." autocomplete="off">
+      </div>
+
+      <div class="filter-group">
+        <label for="genreFilter">Filtrer par style</label>
+        <select id="genreFilter">
+          <option value="all">Tous les styles</option>
+          <option value="Afrobeats">Afrobeats</option>
+          <option value="Amapiano">Amapiano</option>
+          <option value="AfroPop">AfroPop</option>
+          <option value="HipHop">Hip-Hop</option>
+          <option value="R&B">R&B</option>
+        </select>
+      </div>
+    </section>
+
+    <section>
+      <div id="artistsGrid" class="artists-grid"></div>
+    </section>
+  </main>
+
+  <dialog id="artistModal" class="artist-modal" aria-labelledby="artistModalTitle" aria-describedby="artistModalDesc">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fermer">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="modal-hero">
+        <img id="modalImage" src="" alt="">
+        <div class="modal-hero-meta">
+          <span id="modalGenre" class="badge"></span>
+          <h2 id="artistModalTitle"></h2>
+          <p id="artistModalDesc"></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Biographie</h3>
+          <p id="modalBio"></p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Détails</h3>
+          <ul id="modalDetails" class="details-list"></ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Réseaux</h3>
+          <div id="modalSocials" class="social-list"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/artists.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonnicart Blog - Derniers morceaux</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+  <header class="blog-header">
+    <div class="blog-header-inner">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Retour à Sonnicart
+      </a>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Changer le thème">
+        <span class="theme-icon theme-icon-moon"><i class="fas fa-moon"></i></span>
+        <span class="theme-icon theme-icon-sun"><i class="fas fa-sun"></i></span>
+        <span class="theme-toggle-thumb"></span>
+      </button>
+
+    </div>
+    <div class="blog-header-content">
+      <div class="blog-title-block">
+        <h1>Derniers morceaux</h1>
+        <p>Classement par genre, date de sortie et lecture directe de chaque morceau.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="blog-main">
+    <section class="blog-controls">
+    <div class="filter-group search-group">
+        <label for="searchInput">Rechercher un morceau</label>
+        <input
+        type="search"
+        id="searchInput"
+        placeholder="Titre, artiste, genre, tag..."
+        autocomplete="off"
+        >
+    </div>
+
+    <div class="filter-group">
+        <label for="genreFilter">Filtrer par genre</label>
+        <select id="genreFilter">
+        <option value="all">Tous les genres</option>
+        <option value="Afrobeats">Afrobeats</option>
+        <option value="Amapiano">Amapiano</option>
+        <option value="AfroPop">AfroPop</option>
+        <option value="HipHop">Hip-Hop</option>
+        <option value="R&B">R&B</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="sortFilter">Trier par</label>
+        <select id="sortFilter">
+        <option value="latest">Plus récents</option>
+        <option value="oldest">Plus anciens</option>
+        </select>
+    </div>
+    </section>
+
+    <section>
+      <div id="tracksGrid" class="tracks-grid"></div>
+    </section>
+  </main>
+
+  <div class="mini-player">
+    <div class="mini-player-info">
+      <h3 id="miniTrackTitle">Aucun morceau sélectionné</h3>
+      <p id="miniTrackMeta">Choisis un morceau à écouter.</p>
+    </div>
+
+    <div class="mini-player-controls">
+      <audio id="blogAudio" preload="metadata"></audio>
+      <button id="blogPlayBtn" type="button"><i class="fas fa-play"></i></button>
+      <input type="range" id="blogProgress" min="0" max="100" value="0">
+      <span id="blogTime">0:00</span>
+      <input type="range" id="blogVolume" min="0" max="1" step="0.1" value="1">
+    </div>
+  </div>
+
+  <script src="assets/js/blog.js" defer></script>
+</body>
+</html>

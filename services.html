@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonnicart - Empowering African Sound Globally</title>
+    <title>Sonnicart - Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -75,52 +75,6 @@
     </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-    <div class="hero-bg"></div>
-
-    <!-- Blobs décoratifs -->
-    <div class="hero-blob hero-blob-1"></div>
-    <div class="hero-blob hero-blob-2"></div>
-    <div class="hero-blob hero-blob-3"></div>
-
-    <div class="hero-content">
-        <div class="hero-card">
-        <span class="hero-pill">
-            <i class="fas fa-wave-square"></i> Built for African creators
-        </span>
-        <h1 class="hero-title">Empowering African Sound. Globally.</h1>
-        <p class="hero-subtitle">
-            Distribue, suis et fais grandir ta musique depuis une seule plateforme.
-        </p>
-
-        <div class="hero-cta">
-            <button class="btn-primary" onclick="scrollToSection('services')">
-            <i class="fas fa-rocket"></i> Start your journey
-            </button>
-            <button class="btn-secondary" onclick="scrollToSection('showcase')">
-            <i class="fas fa-play-circle"></i> Voir les artistes
-            </button>
-        </div>
-
-        <div class="hero-metrics">
-            <div class="metric">
-            <span class="metric-value">10K+</span>
-            <span class="metric-label">Artistes</span>
-            </div>
-            <div class="metric">
-            <span class="metric-value">50+</span>
-            <span class="metric-label">Pays</span>
-            </div>
-            <div class="metric">
-            <span class="metric-value">1M+</span>
-            <span class="metric-label">Streams suivis</span>
-            </div>
-        </div>
-        </div>
-    </div>
-    </section>
-
     <!-- Services -->
     <section id="services" class="services">
     <div class="services-header">
@@ -129,8 +83,8 @@
         </h2>
         <p>Tout ce qu’il faut pour faire voyager ta musique, de la sortie au reporting.</p>
 
-        <a href="services.html" class="services-cta">
-        Explorer tous les services <i class="fas fa-arrow-right"></i>
+        <a href="contact.html" class="services-cta">
+        Travaillez avec nous <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 
@@ -171,111 +125,20 @@
         </ul>
         </div>
 
-    </div>
-    </section>
-
-    <!-- Showcase -->
-    <section id="showcase" class="showcase">
-    <div class="showcase-inner">
-        <div class="showcase-header">
-        <h2 class="section-title">
-            <i class="fas fa-users"></i> Artistes Sonnicart
-        </h2>
-        <p>Un échantillon des talents qui font vibrer la scène africaine avec Sonnicart.</p>
-
-        <a href="blog.html" class="showcase-blog-btn">
-            <i class="fas fa-music"></i> Derniers morceaux
-        </a>
-        <a href="artists.html" class="showcase-blog-btn">
-            <i class="fas fa-music"></i> Artistes
-        </a>
-        </div>
-
-        <div class="showcase-layout">
-        <!-- Carousel en haut -->
-        <div class="carousel-wrapper">
-            <div class="carousel-header">
-            <span class="pill"><i class="fas fa-fire"></i> Trending now</span>
-            <div class="carousel-nav">
-                <button class="carousel-prev" type="button"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-next" type="button"><i class="fas fa-chevron-right"></i></button>
-            </div>
-            </div>
-
-            <div class="carousel" id="artistCarousel">
-            <div class="carousel-track" id="carouselTrack"></div>
-            </div>
-        </div>
-
-        <div class="player-row">
-            <div class="player-meta">
-            <span class="pill pill-small"><i class="fas fa-wave-square"></i> Now playing</span>
-            <h3 id="currentTrackTitle">Sélection Sonnicart</h3>
-            <p id="currentTrackArtist">Choisis un artiste dans le carousel pour écouter un extrait.</p>
-            <div class="player-tags" id="currentTrackTags">
-                <span>#Afrobeats</span>
-                <span>#Amapiano</span>
-                <span>#AfroPop</span>
-            </div>
-            </div>
-
-            <div class="audio-player">
-            <audio id="audioPlayer" preload="metadata">
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
-
-            <div class="player-controls">
-                <button id="playBtn" type="button"><i class="fas fa-play"></i></button>
-                <div class="progress">
-                <span id="currentTime">0:00</span>
-                <input type="range" id="progressBar" min="0" max="100" value="0">
-                <span id="duration">0:00</span>
-                </div>
-            </div>
-
-            <div class="player-bottom">
-                <div class="volume">
-                <i class="fas fa-volume-up"></i>
-                <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
-                </div>
-                <div class="player-extra">
-                <span><i class="fas fa-heart"></i></span>
-                <span><i class="fas fa-share-alt"></i></span>
-                <span><i class="fas fa-ellipsis-h"></i></span>
-                </div>
-            </div>
-            </div>
-        </div>
+        <div class="service-card" data-service="Analytics">
+        <div class="service-pill"><i class="fas fa-chart-line"></i> Insight</div>
+        <div class="icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Analytics & reporting</h3>
+        <p>Comprends où ta musique performe et prends des décisions basées sur les données.</p>
+        <ul class="service-points">
+            <li><i class="fas fa-check-circle"></i> Vue unifiée streams & revenus.</li>
+            <li><i class="fas fa-check-circle"></i> Découpage par pays & plateformes.</li>
+            <li><i class="fas fa-check-circle"></i> Rapports exportables pour ton équipe.</li>
+        </ul>
         </div>
     </div>
     </section>
 
-    <!-- Stats -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-top">
-                    <span class="stat-icon"><i class="fas fa-users"></i></span>
-                    <span class="stat-number" data-target="10000">0</span>
-                </div>
-                <p>+ Artistes</p>
-            </div>
-            <div class="stat">
-                <div class="stat-top">
-                    <span class="stat-icon"><i class="fas fa-globe"></i></span>
-                    <span class="stat-number" data-target="50">0</span>
-                </div>
-                <p>+ Pays</p>
-            </div>
-            <div class="stat">
-                <div class="stat-top">
-                    <span class="stat-icon"><i class="fas fa-play-circle"></i></span>
-                    <span class="stat-number" data-target="1000000">0</span>
-                </div>
-                <p>+ Streams</p>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA -->
     <section class="cta">
